@@ -86,7 +86,7 @@ extension VideoDownloaderHandler: VideoDownloaderSessionDelegateHandlerDelegate 
         #if !os(macOS)
         guard
             let mimeType = response.mimeType,
-            mimeType.contains("video/")
+            (mimeType.contains("video/") || mimeType.contains("audio/"))
             else { completionHandler(.cancel); return }
         #endif
         
